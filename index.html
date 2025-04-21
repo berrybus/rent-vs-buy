@@ -1,0 +1,50 @@
+<!doctype html>
+
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Rent vs Buy Calculator</title>
+    <script
+      src="https://kit.fontawesome.com/6e96648d57.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <h1>Rent vs Buy Calculator</h1>
+    <div class="input-rows">
+      <div class="input-text-container">
+        <label for="homeCost">Home Cost</label>
+        <p>Total cost for the home</p>
+      </div>
+      <div class="input-data-container">
+        <input
+          type="number"
+          size="10"
+          id="homeCost"
+          name="homeCost"
+          min="1000"
+        />
+      </div>
+      <div class="input-text-container">
+        <label for="homeCost">Down payment</label>
+        <p>The percent downpayment, typically 20% is the minimum</p>
+      </div>
+      <div class="input-data-container">
+        <input
+          type="number"
+          size="10"
+          id="homeCost"
+          name="homeCost"
+          min="1"
+          placeholder="20"
+        />
+        <div class="input-group-append">
+          <span class="input-group-text">%</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
