@@ -14,40 +14,71 @@
 
   <body>
     <h1>Rent vs Buy Calculator</h1>
-    <div class="input-rows">
-      <div class="input-text-container">
-        <label for="homeCost">Home Cost</label>
-        <p>Total cost for the home</p>
+    <div class="input-grid">
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="homeCost">Home Cost</label>
+          <p>Total cost for the home</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="8"
+            id="homeCost"
+            name="homeCost"
+            min="1"
+            value="450000"
+            class="right-rounded"
+          />
+        </div>
       </div>
-      <div class="input-data-container">
-        <span class="input-group-text left-rounded" style="border-right: none"
-          >$</span
-        >
-        <input
-          size="10"
-          id="homeCost"
-          name="homeCost"
-          min="1"
-          placeholder="300000"
-          class="right-rounded"
-        />
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="downPayment">Down payment</label>
+          <p>
+            The percent downpayment, typically 20% is the minimum. The more you
+            pay upfront, the less interest you pay on the mortgage
+          </p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="downPayment"
+            name="downpayment"
+            min="1"
+            max="100"
+            value="20"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
       </div>
-      <div class="input-text-container">
-        <label for="homeCost">Down payment</label>
-        <p>The percent downpayment, typically 20% is the minimum</p>
-      </div>
-      <div class="input-data-container">
-        <input
-          size="10"
-          id="homeCost"
-          name="homeCost"
-          min="1"
-          placeholder="20"
-          class="left-rounded"
-        />
-        <span class="input-group-text right-rounded" style="border-left: none"
-          >%</span
-        >
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="mortgageYears">Mortgage length</label>
+          <p>
+            The number of years of the mortgage loan. Higher means a lower
+            monthly payment at the expense of paying more interest
+          </p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="mortgageYears"
+            name="mortgageYears"
+            value="30"
+            min="1"
+            max="100"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >years</span
+          >
+        </div>
       </div>
     </div>
   </body>

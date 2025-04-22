@@ -52,14 +52,21 @@ body {
   max-width: 1200px;
 }
 
-.input-rows {
+.input-grid {
   display: grid;
   gap: 1em;
-  grid-template-columns: 2fr 1fr;
-  align-items: center;
-  max-width: 900px;
+  grid-template-columns: 1fr 1fr;
+  max-width: 1024px;
   margin-left: 1em;
   margin-right: 1em;
+}
+
+.input-item {
+  display: grid;
+  gap: 1em;
+  grid-template-columns: 3fr 1fr;
+  align-items: center;
+  height: 100%;
 }
 
 .input-data-container {
@@ -74,6 +81,7 @@ body {
   min-height: 1.5em;
   font-size: 1em;
   -webkit-appearance: none;
+  padding-left: 0.5em;
 }
 
 .input-data-container input:focus {
@@ -94,7 +102,9 @@ body {
   color: var(--color-tertiary);
   text-align: center;
   justify-content: center;
-  width: 1.5em;
+  min-width: 1em;
+  padding-left: 0.25em;
+  padding-right: 0.25em;
   white-space: nowrap;
   background-color: var(--color-surface);
   border: 1px solid var(--color-border)
@@ -103,6 +113,7 @@ body {
 .input-text-container {
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
 
 .input-text-container label {
@@ -112,20 +123,26 @@ body {
 
 .input-text-container p {
   margin: 0;
+  font-size: 0.8em;
+  line-height: 1.2em;
   color: var(--color-tertiary);
 }
 
 
 @media (max-width: 640px) {
-  .input-rows {
+  .input-item {
     grid-template-columns: 1fr;
   }
 
-  .input-rows label, .input-rows p {
+  .input-item label, .input-item p {
     text-align: center;
   }
 
   .input-data-container {
     justify-content: center; 
+  }
+
+  .input-grid {
+    grid-template-columns: 1fr;
   }
 }
