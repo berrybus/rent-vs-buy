@@ -4,14 +4,17 @@
     --color-secondary: #3f3f46;
     /* Usually lighter text color */
     --color-tertiary: #52525b;
+    --color-border: #d4d4d8;
     /* theme color */
     --color-primary: #047857;
+    --color-surface: #f4f4f5;
 }
 
 html {
   font-family: sans-serif;
   background-color: var(--color-body);
   line-height: 1.5em;
+  font-size: 1.25em;
 }
 
 h1 {
@@ -21,6 +24,7 @@ h1 {
   width: fit-content;
   text-align: center;
   border-radius: 4px;
+  line-height: 1.2em;
 }
 
 h2, h3 {
@@ -45,52 +49,46 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 2em auto 2em auto;
-  max-width: 1500px;
+  max-width: 1200px;
 }
 
 .input-rows {
   display: grid;
   gap: 1em;
-  grid-template-columns: 1fr 300px;
+  grid-template-columns: 2fr 1fr;
   align-items: center;
   max-width: 900px;
+  margin-left: 1em;
+  margin-right: 1em;
 }
 
 .input-data-container {
-  position: relative;
   display: flex;
-  flex-wrap: wrap;
-  align-items: stretch;
   width: 100%;
+  justify-content: end;
 }
 
 .input-data-container input {
-  margin-left: auto;
   display: block;
+  border: 1px solid var(--color-border);
+  min-height: 1.5em;
+  font-size: 1em;
 }
 
-
-.input-group-append {
-  display: flex;
-  margin-left: -1px;
+.input-data-container input:focus {
+  z-index: 10;
 }
 
 .input-group-text {
   display: flex;
   align-items: center;
-  color: #495057;
+  color: var(--color-tertiary);
   text-align: center;
+  justify-content: center;
+  width: 1.5em;
   white-space: nowrap;
-  background-color: #e9ecef;
-  border: 1px solid #ced4da;
-}
-
-.input-symbol {
-  position: absolute;
-  right: 2em;
-  top: 50%;
-  transform: translateY(-50%);
-  pointer-events: none; /* Allows clicking through the symbol to the input */
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border)
 }
 
 .input-text-container {
@@ -106,4 +104,19 @@ body {
 .input-text-container p {
   margin: 0;
   color: var(--color-tertiary);
+}
+
+
+@media (max-width: 640px) {
+  .input-rows {
+    grid-template-columns: 1fr;
+  }
+
+  .input-rows label, .input-rows p {
+    text-align: center;
+  }
+
+  .input-data-container {
+    justify-content: center; 
+  }
 }
