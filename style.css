@@ -73,10 +73,19 @@ body {
   border: 1px solid var(--color-border);
   min-height: 1.5em;
   font-size: 1em;
+  -webkit-appearance: none;
 }
 
 .input-data-container input:focus {
   z-index: 10;
+}
+
+.right-rounded {
+  border-radius: 0 4px 4px 0;
+}
+
+.left-rounded {
+  border-radius: 4px 0 0 4px;
 }
 
 .input-group-text {
