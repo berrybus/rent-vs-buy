@@ -8,6 +8,8 @@
     /* theme color */
     --color-primary: #047857;
     --color-surface: #f4f4f5;
+    --color-purple-text: #8649bb;
+    --color-blue-text: #0369a1;
 }
 
 html {
@@ -26,6 +28,7 @@ h1 {
   border-radius: 4px;
   line-height: 1.2em;
 }
+
 
 h2, h3 {
   color: #4a4e69;
@@ -51,6 +54,7 @@ body {
   margin: 2em auto 2em auto;
   max-width: 1200px;
 }
+
 
 .input-grid {
   display: grid;
@@ -128,6 +132,13 @@ body {
   color: var(--color-tertiary);
 }
 
+.purple-text {
+  color: var(--color-purple-text) !important;
+}
+
+.blue-text {
+  color: var(--color-blue-text) !important;
+}
 
 @media (max-width: 640px) {
   .input-item {

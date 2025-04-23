@@ -13,7 +13,10 @@
   </head>
 
   <body>
-    <h1>Rent vs Buy Calculator</h1>
+    <h1>
+      <span class="blue-text">Rent</span> vs
+      <span class="purple-text">Buy</span> Calculator
+    </h1>
     <div class="input-grid">
       <div class="input-item">
         <div class="input-text-container">
@@ -29,7 +32,7 @@
             id="homeCost"
             name="homeCost"
             min="1"
-            value="450000"
+            value="450,000"
             class="right-rounded"
           />
         </div>
@@ -47,7 +50,7 @@
             size="3"
             id="downPayment"
             name="downpayment"
-            min="1"
+            min="0"
             max="100"
             value="20"
             class="left-rounded"
@@ -78,6 +81,136 @@
           <span class="input-group-text right-rounded" style="border-left: none"
             >years</span
           >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="propertyTax">Property tax</label>
+          <p>The amount of property tax paid per month</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="propertyTax"
+            name="propertyTax"
+            value="600"
+            min="0"
+            class="right-rounded"
+          />
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="hoa">HOA</label>
+          <p>
+            The amount of HOA or common charges paid per month. These are
+            typically higher in condos
+          </p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="hoa"
+            name="hoa"
+            value="600"
+            min="0"
+            class="right-rounded"
+          />
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="homeownerInsurance">Homeowners insurance</label>
+          <p>Homeowners insurance cost paid per month</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="homeownerInsurance"
+            name="homeownerInsurance"
+            value="300"
+            min="0"
+            class="right-rounded"
+          />
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="hoaGrowth">HOA Increase</label>
+          <p>
+            The expected YoY growth of your HOA fees. They typically track with
+            inflation, but they don't always get raised consistently.
+          </p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="hoaGrowth"
+            name="hoaGrowth"
+            value="3"
+            min="0"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="hoaGrowth">Maintenance costs</label>
+          <p>
+            The expected percent to spend on home maintenance per year. Usually
+            higher for a house than a condo or coop since the latter typically
+            bundles maintenance in HOA fees
+          </p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="hoaGrowth"
+            name="hoaGrowth"
+            value="1"
+            min="0"
+            max="100"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="standardDeduction">Standard deduction</label>
+          <p>
+            This is used to calculate tax savings since you can itemize payments
+            on the interest portion of your mortgage. Note this is the federal
+            standard deduction. State and local taxes are too annoying to
+            calculate
+          </p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="standardDeduction"
+            name="standardDeduction"
+            value="14,600"
+            min="0"
+            class="right-rounded"
+          />
         </div>
       </div>
     </div>
