@@ -45,19 +45,24 @@
             pay upfront, the less interest you pay on the mortgage
           </p>
         </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="downPayment"
-            name="downpayment"
-            min="0"
-            max="100"
-            value="20"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
+        <div class="input-container">
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="downPayment"
+              name="downpayment"
+              min="0"
+              max="100"
+              value="20"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
+          <p id="downPaymentDollars"></p>
         </div>
       </div>
       <div class="input-item">
@@ -126,25 +131,6 @@
       </div>
       <div class="input-item">
         <div class="input-text-container">
-          <label for="homeownerInsurance">Homeowners insurance</label>
-          <p>Homeowners insurance cost paid per month</p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="homeownerInsurance"
-            name="homeownerInsurance"
-            value="300"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
           <label for="hoaGrowth">HOA Increase</label>
           <p>
             The expected YoY growth of your HOA fees. They typically track with
@@ -167,6 +153,25 @@
       </div>
       <div class="input-item">
         <div class="input-text-container">
+          <label for="homeownerInsurance">Homeowners insurance</label>
+          <p>Homeowners insurance cost paid per month</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="homeownerInsurance"
+            name="homeownerInsurance"
+            value="300"
+            min="0"
+            class="right-rounded"
+          />
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
           <label for="hoaGrowth">Maintenance costs</label>
           <p>
             The expected percent to spend on home maintenance per year. Usually
@@ -174,19 +179,24 @@
             bundles maintenance in HOA fees
           </p>
         </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="hoaGrowth"
-            name="hoaGrowth"
-            value="1"
-            min="0"
-            max="100"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
+        <div class="input-container">
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="maintenance"
+              name="maintenance"
+              value="1"
+              min="0"
+              max="100"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
+          <p id="maintenanceAmount"></p>
         </div>
       </div>
       <div class="input-item">
@@ -214,5 +224,6 @@
         </div>
       </div>
     </div>
+    <script src="script.js"></script>
   </body>
 </html>
