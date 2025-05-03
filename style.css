@@ -1,15 +1,15 @@
 :root {
-    --color-body: #fafafa;
-    /* Usually darker text color */
-    --color-secondary: #3f3f46;
-    /* Usually lighter text color */
-    --color-tertiary: #52525b;
-    --color-border: #d4d4d8;
-    /* theme color */
-    --color-primary: #047857;
-    --color-surface: #f4f4f5;
-    --color-purple-text: #8649bb;
-    --color-blue-text: #0369a1;
+  --color-body: #fafafa;
+  /* Usually darker text color */
+  --color-secondary: #3f3f46;
+  /* Usually lighter text color */
+  --color-tertiary: #52525b;
+  --color-border: #d4d4d8;
+  /* theme color */
+  --color-primary: #047857;
+  --color-surface: #f4f4f5;
+  --color-purple-text: #8649bb;
+  --color-blue-text: #0369a1;
 }
 
 html {
@@ -17,6 +17,25 @@ html {
   background-color: var(--color-body);
   line-height: 1.5em;
   font-size: 1.25em;
+}
+
+.section-header {
+  text-align: start;
+  width: 100%;
+  padding-bottom: 0em;
+  margin-bottom: 0em;
+  padding-left: 1.25em;
+  color: var(--color-blue-text);
+}
+
+hr {
+  max-width: 1500px;
+  width: 100%;
+  border: 0;
+  height: 1px;
+  background: var(--color-border);
+  margin-top: 1.5em;
+  margin-bottom: 1.5em;
 }
 
 h1 {
@@ -29,8 +48,8 @@ h1 {
   line-height: 1.2em;
 }
 
-
-h2, h3 {
+h2,
+h3 {
   color: #4a4e69;
   text-align: center;
 }
@@ -51,10 +70,7 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 2em auto 2em auto;
-  max-width: 1200px;
 }
-
 
 .input-grid {
   display: grid;
@@ -62,6 +78,7 @@ body {
   grid-template-columns: 1fr 1fr;
   margin-left: 1em;
   margin-right: 1em;
+  max-width: 1280px;
 }
 
 .input-container {
@@ -122,7 +139,7 @@ body {
   padding-right: 0.25em;
   white-space: nowrap;
   background-color: var(--color-surface);
-  border: 1px solid var(--color-border)
+  border: 1px solid var(--color-border);
 }
 
 .input-text-container {
@@ -151,20 +168,52 @@ body {
   color: var(--color-blue-text) !important;
 }
 
+.button-container {
+  display: flex;
+  justify-content: end;
+  align-items: end;
+}
+
+.button-container button {
+  padding: 0.5em 1em;
+  text-align: center;
+  line-height: 1em;
+  font-size: 1em;
+  background-color: #10b981;
+  color: #fafafa;
+  border-radius: 4px;
+  border: 1px solid #047857;
+}
+
+.button-container button:hover {
+  background-color: #059669;
+  cursor: pointer;
+}
+
+.button-container button:active {
+  background-color: #047857;
+  cursor: pointer;
+}
+
 @media (max-width: 720px) {
   .input-item {
     grid-template-columns: 1fr;
   }
 
-  .input-item label, .input-item p {
+  .input-item label,
+  .input-item p {
     text-align: center;
   }
 
   .input-data-container {
-    justify-content: center; 
+    justify-content: center;
   }
 
   .input-grid {
     grid-template-columns: 1fr;
+  }
+
+  .button-container {
+    justify-content: center;
   }
 }

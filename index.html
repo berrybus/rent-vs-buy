@@ -17,6 +17,72 @@
       <span class="blue-text">Rent</span> vs
       <span class="purple-text">Buy</span> Calculator
     </h1>
+    <hr />
+    <div class="input-grid">
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="rent">Rent</label>
+          <p>Rent cost per month</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="8"
+            id="rent"
+            name="rent"
+            min="1"
+            value="1,500"
+            class="right-rounded"
+          />
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="rentGrowth">Rent increase rate</label>
+          <p>Estimated increase in rent per month</p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="rentGrowth"
+            name="rentGrowth"
+            min="1"
+            value="3.5"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="stockGrowth">Investment return rate</label>
+          <p>
+            Estimated investment returns of any money not spent on the home. For
+            example, putting the down payment money in the S&ampP 500.
+            Non-inflation adjusted
+          </p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="stockGrowth"
+            name="stockGrowth"
+            min="1"
+            value="8"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
+      </div>
+    </div>
+    <hr />
+
     <div class="input-grid">
       <div class="input-item">
         <div class="input-text-container">
@@ -67,6 +133,25 @@
       </div>
       <div class="input-item">
         <div class="input-text-container">
+          <label for="interestRate">Interest rate</label>
+          <p>Interest rate of the loan</p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="interestRate"
+            name="interestRate"
+            value="7.25"
+            min="0"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
+          >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
           <label for="mortgageYears">Mortgage length</label>
           <p>
             The number of years of the mortgage loan. Higher means a lower
@@ -85,6 +170,25 @@
           />
           <span class="input-group-text right-rounded" style="border-left: none"
             >years</span
+          >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="homeGrowth">Home appreciation rate</label>
+          <p>Estimated rate at which your home increases in value per year</p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="homeGrowth"
+            name="homeGrowth"
+            value="4"
+            min="0"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >%</span
           >
         </div>
       </div>
@@ -152,29 +256,27 @@
         <div class="input-text-container">
           <label for="hoaGrowth">Maintenance costs</label>
           <p>
-            The expected percent to spend on home maintenance per year. Usually
+            The expected amount to spend home maintenance per month. Usually
             higher for a house than a condo or coop since the latter typically
             bundles maintenance in HOA fees
           </p>
         </div>
         <div class="input-container">
           <div class="input-data-container">
-            <input
-              size="3"
-              id="maintenance"
-              name="maintenance"
-              value="1"
-              min="0"
-              max="100"
-              class="left-rounded"
-            />
             <span
-              class="input-group-text right-rounded"
-              style="border-left: none"
-              >%</span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
             >
+            <input
+              size="5"
+              id="homeownerInsurance"
+              name="homeownerInsurance"
+              value="300"
+              min="0"
+              class="right-rounded"
+            />
           </div>
-          <p id="maintenanceAmount"></p>
         </div>
       </div>
       <div class="input-item">
@@ -251,7 +353,7 @@
           <label for="rentalIncome">Rental income</label>
           <p>
             Renting out an extra room? You sly dog. Enter your rental income per
-            month, I'll use the same rent increase rate from above
+            month
           </p>
         </div>
         <div class="input-data-container">
@@ -268,7 +370,11 @@
           />
         </div>
       </div>
+      <div class="button-container">
+        <button type="button">Calculate</button>
+      </div>
     </div>
+    <hr />
     <script src="script.js"></script>
   </body>
 </html>
