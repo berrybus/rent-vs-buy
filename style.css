@@ -73,15 +73,57 @@ body {
 }
 
 details {
-  max-width: 1280px; /* Don't exceed 1280px */
-  margin: 0 auto; /* Center the container horizontally */
-  padding: 0 1em; /* Optional: inner spacing so content doesn't touch edges */
-  width: 100%; /* Take full width up to the max-width */
-  box-sizing: border-box; /* Include padding in the width calculation */
+  max-width: 1280px; 
+  margin: 0 auto; 
+  padding: 0.5em 1em 0.5em 1em;
+  width: 100%; 
+  box-sizing: border-box;
+  border: 1px solid var(--color-border);
+  border-radius: 4px;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.summary-blue {
+  background-color: var(--color-blue-text);
+  color: white;
+}
+
+.summary-blue:hover {
+  background-color: #075985;
+}
+
+.summary-blue:active {
+  background-color: #0c4a6e;
+}
+
+.summary-purple {
+  background-color: var(--color-purple-text);
+  color: white;
+}
+
+.summary-purple:hover {
+  background-color: #6b21a8;
+}
+
+.summary-purple:active {
+  background-color: #581c87;
 }
 
 details summary {
-  padding-bottom: 1em;
+  margin: -0.5em -1em -0.5em -1em;  /* negate top and horizontal padding from details */
+  padding: 0.5em 1em;
+  font-weight: bold;
+}
+
+details[open] summary {
+  margin: -0.5em -1em 1em -1em;
+  padding: 0.5em 1em;
+}
+
+details[open] {
+  padding: 0.5em 1em 1.5em 1em;
 }
 
 details summary:hover {
@@ -103,6 +145,10 @@ details summary:hover {
   justify-content: space-between;
   width: 100%;
   max-width: 1280px;
+  margin: 0 auto; 
+  padding: 0 1em;
+  box-sizing: border-box;
+  align-items: center;
 }
 
 .input-container {
@@ -113,7 +159,7 @@ details summary:hover {
 .input-container p {
   margin: 0;
   font-size: 0.8em;
-  text-align: center;
+  text-align: right;
 }
 
 .input-item {
@@ -281,7 +327,7 @@ table .year {
 
 table th {
   position: sticky;
-  top: -1px;
+  top: 0;
   z-index: 2;
   height: 1.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
@@ -303,9 +349,14 @@ table th {
 
   .input-grid {
     grid-template-columns: 1fr;
+    margin-left: 0;
   }
 
   .button-container {
     justify-content: center;
+  }
+
+  .controls-container {
+    flex-direction: column;
   }
 }

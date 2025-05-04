@@ -19,8 +19,8 @@
     </h1>
     <hr />
 
-    <details>
-      <summary>Renting</summary>
+    <details open>
+      <summary class="summary-blue">Renting</summary>
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
@@ -98,135 +98,69 @@
 
     <hr />
 
-    <details>
-      <summary>Buying the house</summary>
-    <div class="input-grid">
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="homeCost">Home cost</label>
-          <p>Total cost for the home</p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="8"
-            id="homeCost"
-            name="homeCost"
-            min="1"
-            value="450,000"
-            class="right-rounded number-input"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="downPayment">Down payment</label>
-          <p>
-            The percent downpayment, typically 20% is the minimum. The more you
-            pay upfront, the less interest you pay on the mortgage
-          </p>
-        </div>
-        <div class="input-container">
-          <div class="input-data-container">
-            <input
-              size="3"
-              id="downPayment"
-              name="downpayment"
-              min="0"
-              max="100"
-              value="20"
-              class="left-rounded"
-            />
-            <span
-              class="input-group-text right-rounded"
-              style="border-left: none"
-              >%</span
-            >
-          </div>
-          <p id="downPaymentDollars"></p>
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="interestRate">Interest rate</label>
-          <p>Interest rate of the loan</p>
-        </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="interestRate"
-            name="interestRate"
-            value="7.25"
-            min="0"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="mortgageYears">Mortgage length</label>
-          <p>
-            The number of years of the mortgage loan. Higher means a lower
-            monthly payment at the expense of paying more interest
-          </p>
-        </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="mortgageYears"
-            name="mortgageYears"
-            value="30"
-            min="1"
-            max="100"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >years</span
-          >
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="mortgage">Mortgage payment</label>
-          <p>Amount of monthly mortgage payment</p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="mortgage"
-            name="mortgage"
-            value=""
-            min="0"
-            class="right-rounded"
-            disabled
-          />
-        </div>
-      </div>
-    </div>
-  </details>
-
-    <details>
-      <summary>Misc</summary>
+    <details open>
+      <summary class="summary-purple">Initial Payment</summary>
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
-            <label for="homeGrowth">Home appreciation rate</label>
-            <p>Estimated rate at which your home increases in value per year</p>
+            <label for="homeCost">Home cost</label>
+            <p>Total cost for the home</p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="8"
+              id="homeCost"
+              name="homeCost"
+              min="1"
+              value="450,000"
+              class="right-rounded number-input"
+            />
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="downPayment">Down payment</label>
+            <p>
+              The percent downpayment, typically 20% is the minimum. The more
+              you pay upfront, the less interest you pay on the mortgage
+            </p>
+          </div>
+          <div class="input-container">
+            <div class="input-data-container">
+              <input
+                size="3"
+                id="downPayment"
+                name="downpayment"
+                min="0"
+                max="100"
+                value="20"
+                class="left-rounded"
+              />
+              <span
+                class="input-group-text right-rounded"
+                style="border-left: none"
+                >%</span
+              >
+            </div>
+            <p id="downPaymentDollars"></p>
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="interestRate">Interest rate</label>
+            <p>Interest rate of the loan</p>
           </div>
           <div class="input-data-container">
             <input
               size="3"
-              id="homeGrowth"
-              name="homeGrowth"
-              value="4"
+              id="interestRate"
+              name="interestRate"
+              value="7.25"
               min="0"
               class="left-rounded"
             />
@@ -237,6 +171,59 @@
             >
           </div>
         </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="mortgageYears">Mortgage length</label>
+            <p>
+              The number of years of the mortgage loan. Higher means a lower
+              monthly payment at the expense of paying more interest
+            </p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="mortgageYears"
+              name="mortgageYears"
+              value="30"
+              min="1"
+              max="100"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >years</span
+            >
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="mortgage">Mortgage payment</label>
+            <p>Amount of monthly mortgage payment</p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="mortgage"
+              name="mortgage"
+              value=""
+              min="0"
+              class="right-rounded"
+              disabled
+            />
+          </div>
+        </div>
+      </div>
+    </details>
+
+    <details open>
+      <summary class="summary-purple">Recurring Costs</summary>
+      <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
             <label for="propertyTax">Property tax</label>
@@ -328,6 +315,32 @@
                 class="right-rounded"
               />
             </div>
+          </div>
+        </div>
+      </div>
+    </details>
+    <details>
+      <summary class="summary-purple">Other Assumptions</summary>
+      <div class="input-grid">
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="homeGrowth">Home appreciation rate</label>
+            <p>Estimated rate at which your home increases in value per year</p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="homeGrowth"
+              name="homeGrowth"
+              value="4"
+              min="0"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
           </div>
         </div>
         <div class="input-item">

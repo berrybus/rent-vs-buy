@@ -59,11 +59,17 @@ function calculateMortgage() {
     downPayment == undefined ||
     homeCost == undefined ||
     interestRate == undefined ||
-    mortgageYears == undefined
+    mortgageYears == undefined ||
+    interestRate == 0
   ) {
     return;
   }
   interestRate /= 100;
+  if (downPayment >= 100) {
+    mortgage = 0;
+    mortgageInput.value = mortgage;
+    return;
+  }
   console.log("downPayment: " + downPayment);
   console.log("homeCost: " + homeCost);
   console.log("interestRate: " + interestRate);
