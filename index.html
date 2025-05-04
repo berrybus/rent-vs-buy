@@ -22,7 +22,11 @@
       <div class="input-item">
         <div class="input-text-container">
           <label for="rent">Rent</label>
-          <p>Rent cost per month</p>
+          <p>
+            Monthly. Include renter's insurance if it's significant. Don't
+            include utilities because we'll assume it's about the same between
+            renting and buying
+          </p>
         </div>
         <div class="input-data-container">
           <span class="input-group-text left-rounded" style="border-right: none"
@@ -34,14 +38,14 @@
             name="rent"
             min="1"
             value="1,500"
-            class="right-rounded"
+            class="right-rounded number-input"
           />
         </div>
       </div>
       <div class="input-item">
         <div class="input-text-container">
           <label for="rentGrowth">Rent increase rate</label>
-          <p>Estimated increase in rent per month</p>
+          <p>Estimated increase in rent per year</p>
         </div>
         <div class="input-data-container">
           <input
@@ -61,7 +65,7 @@
         <div class="input-text-container">
           <label for="stockGrowth">Investment return rate</label>
           <p>
-            Estimated investment returns of any money not spent on the home. For
+            Estimated investment returns of any money not spent on housing. For
             example, putting the down payment money in the S&ampP 500.
             Non-inflation adjusted
           </p>
@@ -99,7 +103,7 @@
             name="homeCost"
             min="1"
             value="450,000"
-            class="right-rounded"
+            class="right-rounded number-input"
           />
         </div>
       </div>
@@ -171,6 +175,26 @@
           <span class="input-group-text right-rounded" style="border-left: none"
             >years</span
           >
+        </div>
+      </div>
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="mortgage">Mortgage payment</label>
+          <p>Amount of monthly mortgage payment</p>
+        </div>
+        <div class="input-data-container">
+          <span class="input-group-text left-rounded" style="border-right: none"
+            >$</span
+          >
+          <input
+            size="5"
+            id="mortgage"
+            name="mortgage"
+            value=""
+            min="0"
+            class="right-rounded"
+            disabled
+          />
         </div>
       </div>
       <div class="input-item">
@@ -322,7 +346,7 @@
             name="standardDeduction"
             value="14,600"
             min="0"
-            class="right-rounded"
+            class="right-rounded number-input"
           />
         </div>
       </div>
@@ -370,11 +394,35 @@
           />
         </div>
       </div>
+    </div>
+    <hr />
+    <div class="input-grid">
+      <div class="input-item">
+        <div class="input-text-container">
+          <label for="years">Years to calculate</label>
+          <p>How many years to consider in the calculation</p>
+        </div>
+        <div class="input-data-container">
+          <input
+            size="3"
+            id="years"
+            name="years"
+            value="30"
+            min="1"
+            max="100"
+            class="left-rounded"
+          />
+          <span class="input-group-text right-rounded" style="border-left: none"
+            >years</span
+          >
+        </div>
+      </div>
       <div class="button-container">
-        <button type="button">Calculate</button>
+        <button onclick="createTable()" type="button">Calculate</button>
       </div>
     </div>
     <hr />
+    <div id="table-container"></div>
     <script src="script.js"></script>
   </body>
 </html>
