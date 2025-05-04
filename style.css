@@ -201,6 +201,69 @@ input:disabled {
   cursor: pointer;
 }
 
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  border: 1px solid var(--color-border);
+  padding: 0.3em;
+  text-align: right;
+}
+
+table .big-header-rent {
+  border-left: 3px solid var(--color-tertiary);
+  border-top: 3px solid var(--color-tertiary);
+  border-right: 3px solid var(--color-tertiary);
+  background-color: var(--color-blue-text);
+  color: white;
+}
+
+table .big-header-buy {
+  border-top: 3px solid var(--color-tertiary);
+  border-right: 3px solid var(--color-tertiary);
+  background-color: var(--color-purple-text);
+  color: white;
+}
+
+table td:nth-child(1),
+table td:nth-child(3),
+table td:nth-child(5),
+table th:nth-child(1),
+table th:nth-child(3),
+table th:nth-child(5) {
+  border-right: 3px solid var(--color-tertiary);
+}
+
+table tbody tr:nth-child(even) {
+  background-color: var(--color-surface);
+}
+
+table .rent {
+  background-color: var(--color-blue-text);
+  color: white;
+}
+
+table .buy {
+  background-color: var(--color-purple-text);
+  color: white;
+}
+
+table .year {
+  background-color: var(--color-surface);
+  color: var(--color-secondary);
+}
+
+table th {
+  position: sticky;
+  top: -1px;
+  z-index: 2;
+  height: 1.5em;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
 @media (max-width: 720px) {
   .input-item {
     grid-template-columns: 1fr;

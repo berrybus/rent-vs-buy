@@ -95,39 +95,133 @@ document.querySelectorAll(".number-input").forEach((input) => {
 });
 
 function createTable() {
-  const data = [
-    { year: 1, principal: 10000, interest: 3000, total: 13000 },
-    { year: 2, principal: 10500, interest: 2500, total: 13000 },
-    { year: 3, principal: 11000, interest: 2000, total: 13000 },
-    { year: 4, principal: 11500, interest: 1500, total: 13000 },
-    { year: 5, principal: 12000, interest: 1000, total: 13000 },
+  const rentData = [
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+    { year: 1, rentPaid: 12000, cumulative: 12000 },
+    { year: 2, rentPaid: 12360, cumulative: 24360 },
+    { year: 3, rentPaid: 12731, cumulative: 37091 },
+    { year: 4, rentPaid: 13113, cumulative: 50204 },
+    { year: 5, rentPaid: 13506, cumulative: 63710 },
+  ];
+
+  const buyData = [
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
+    { year: 1, mortgage: 13000, equity: 10000 },
+    { year: 2, mortgage: 13000, equity: 20500 },
+    { year: 3, mortgage: 13000, equity: 31500 },
+    { year: 4, mortgage: 13000, equity: 43000 },
+    { year: 5, mortgage: 13000, equity: 55000 },
   ];
 
   const container = document.getElementById("table-container");
-  container.innerHTML = ""; // clear previous tables if any
+  container.innerHTML = "";
 
   const table = document.createElement("table");
-  const headerRow = table.insertRow();
+  // Create thead and tbody
+  const thead = document.createElement("thead");
+  const tbody = document.createElement("tbody");
+  table.appendChild(thead);
+  table.appendChild(tbody);
 
+  // Column headers
+  const headerRow = thead.insertRow();
   const headers = [
-    "Year",
-    "Principal ($)",
-    "Interest ($)",
-    "Total Payment ($)",
+    ["Year", "year"],
+    ["Rent Paid ($)", "rent"],
+    ["Cumulative Rent ($)", "rent"],
+    ["Mortgage ($)", "buy"],
+    ["Equity Gained ($)", "buy"],
   ];
-  headers.forEach((text) => {
+  headers.forEach(([text, style]) => {
     const th = document.createElement("th");
     th.textContent = text;
+    if (style != "") {
+      th.classList.add(style);
+    }
     headerRow.appendChild(th);
   });
 
-  data.forEach((row) => {
-    const tr = table.insertRow();
-    tr.insertCell().textContent = row.year;
-    tr.insertCell().textContent = row.principal.toLocaleString();
-    tr.insertCell().textContent = row.interest.toLocaleString();
-    tr.insertCell().textContent = row.total.toLocaleString();
-  });
+  // Data rows
+  for (let i = 0; i < rentData.length; i++) {
+    const row = tbody.insertRow();
+    const rent = rentData[i];
+    const buy = buyData[i];
+
+    row.insertCell().textContent = rent.year;
+    row.insertCell().textContent = rent.rentPaid.toLocaleString();
+    row.insertCell().textContent = rent.cumulative.toLocaleString();
+
+    row.insertCell().textContent = buy.mortgage.toLocaleString();
+    row.insertCell().textContent = buy.equity.toLocaleString();
+  }
 
   container.appendChild(table);
   table.scrollIntoView({ behavior: "smooth" });
