@@ -5,8 +5,6 @@
   /* Usually lighter text color */
   --color-tertiary: #52525b;
   --color-border: #d4d4d8;
-  /* theme color */
-  --color-primary: #047857;
   --color-surface: #f4f4f5;
   --color-purple-text: #8649bb;
   --color-blue-text: #0369a1;
@@ -53,14 +51,6 @@ h3 {
   text-align: center;
 }
 
-/*
-p {
-  color: #232222;
-  line-height: 1.75em;
-  padding: 0 0.5em;
-}
-*/
-
 img {
   max-width: 100%;
 }
@@ -70,6 +60,8 @@ body {
   flex-direction: column;
   align-items: center;
   gap: 0.75em;
+  overflow: visible;
+  padding-bottom: 2em;
 }
 
 details {
@@ -109,6 +101,18 @@ details {
 
 .summary-purple:active {
   background-color: #581c87;
+}
+
+.summary-neutral {
+  background-color: #e4e4e7;
+}
+
+.summary-neutral:hover {
+  background-color: #d4d4d8;
+}
+
+.summary-neutral:active {
+  background-color: #a1a1aa;
 }
 
 details summary {
@@ -271,32 +275,24 @@ input:disabled {
 }
 
 table {
+  margin: auto;
   border-collapse: collapse;
-  min-width: max-content;
-  width: 100%;
 }
 
 table th,
 table td {
   border: 1px solid var(--color-border);
-  padding: 0.3em;
   text-align: right;
-  white-space: nowrap;
+  box-sizing: border-box;
 }
 
-table .big-header-rent {
-  border-left: 3px solid var(--color-tertiary);
-  border-top: 3px solid var(--color-tertiary);
-  border-right: 3px solid var(--color-tertiary);
-  background-color: var(--color-blue-text);
-  color: white;
+table th {
+  padding: 0.25em;
+  position: relative;
 }
 
-table .big-header-buy {
-  border-top: 3px solid var(--color-tertiary);
-  border-right: 3px solid var(--color-tertiary);
-  background-color: var(--color-purple-text);
-  color: white;
+table td {
+  padding: 0.1em;
 }
 
 table td:nth-child(1),
@@ -327,21 +323,19 @@ table .year {
   color: var(--color-secondary);
 }
 
-table th {
+table thead {
   position: sticky;
   top: 0;
-  z-index: 2;
+  z-index: 1;
   height: 1.5em;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 #table-container {
-  overflow-x: auto;    
-  -webkit-overflow-scrolling: touch;
-  max-width: min(100%, 1500px);
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: scroll;
 }
-
-
 
 @media (max-width: 720px) {
   .input-item {

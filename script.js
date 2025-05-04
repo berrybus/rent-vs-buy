@@ -231,5 +231,11 @@ function createTable() {
   }
 
   container.appendChild(table);
-  table.scrollIntoView({ behavior: "smooth" });
+  const results = document.getElementById("results");
+  results.innerHTML = "<span class=\"blue-text\">Renting</span> saves you $56,000";
+  const chartContainer = document.getElementById("chart-container");
+  chartContainer.style.display = "block"
+  chartContainer.setAttribute("open", "");
 }
+
+{/* <span class="blue-text">Renting</span> saves you $56,000 */}
