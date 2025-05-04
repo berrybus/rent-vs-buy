@@ -34,8 +34,6 @@ hr {
   border: 0;
   height: 1px;
   background: var(--color-border);
-  margin-top: 1.5em;
-  margin-bottom: 1.5em;
 }
 
 h1 {
@@ -71,14 +69,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.75em;
+}
+
+details {
+  max-width: 1280px; /* Don't exceed 1280px */
+  margin: 0 auto; /* Center the container horizontally */
+  padding: 0 1em; /* Optional: inner spacing so content doesn't touch edges */
+  width: 100%; /* Take full width up to the max-width */
+  box-sizing: border-box; /* Include padding in the width calculation */
+}
+
+details summary {
+  padding-bottom: 1em;
+}
+
+details summary:hover {
+  cursor: pointer;
 }
 
 .input-grid {
   display: grid;
+  grid-template-columns: 1fr;
+  max-width: 100%;
   gap: 1em;
-  grid-template-columns: 1fr 1fr;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin-left: 0.9em;
+}
+
+.controls-container {
+  display: flex;
+  gap: 1em;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
   max-width: 1280px;
 }
 

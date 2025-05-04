@@ -18,75 +18,88 @@
       <span class="purple-text">Buy</span> Calculator
     </h1>
     <hr />
-    <div class="input-grid">
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="rent">Rent</label>
-          <p>
-            Monthly. Include renter's insurance if it's significant. Don't
-            include utilities because we'll assume it's about the same between
-            renting and buying
-          </p>
+
+    <details>
+      <summary>Renting</summary>
+      <div class="input-grid">
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="rent">Rent</label>
+            <p>
+              Monthly. Include renter's insurance if it's significant. Don't
+              include utilities because we'll assume it's about the same between
+              renting and buying
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="8"
+              id="rent"
+              name="rent"
+              min="1"
+              value="1,500"
+              class="right-rounded number-input"
+            />
+          </div>
         </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="8"
-            id="rent"
-            name="rent"
-            min="1"
-            value="1,500"
-            class="right-rounded number-input"
-          />
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="rentGrowth">Rent increase rate</label>
+            <p>Estimated increase in rent per year</p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="rentGrowth"
+              name="rentGrowth"
+              min="1"
+              value="3.5"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="stockGrowth">Investment return rate</label>
+            <p>
+              Estimated investment returns of any money not spent on housing.
+              For example, putting the down payment money in the S&ampP 500.
+              Non-inflation adjusted
+            </p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="stockGrowth"
+              name="stockGrowth"
+              min="1"
+              value="8"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
         </div>
       </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="rentGrowth">Rent increase rate</label>
-          <p>Estimated increase in rent per year</p>
-        </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="rentGrowth"
-            name="rentGrowth"
-            min="1"
-            value="3.5"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="stockGrowth">Investment return rate</label>
-          <p>
-            Estimated investment returns of any money not spent on housing. For
-            example, putting the down payment money in the S&ampP 500.
-            Non-inflation adjusted
-          </p>
-        </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="stockGrowth"
-            name="stockGrowth"
-            min="1"
-            value="8"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
-        </div>
-      </div>
-    </div>
+    </details>
+
     <hr />
 
+    <details>
+      <summary>Buying the house</summary>
     <div class="input-grid">
       <div class="input-item">
         <div class="input-text-container">
@@ -197,95 +210,83 @@
           />
         </div>
       </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="homeGrowth">Home appreciation rate</label>
-          <p>Estimated rate at which your home increases in value per year</p>
+    </div>
+  </details>
+
+    <details>
+      <summary>Misc</summary>
+      <div class="input-grid">
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="homeGrowth">Home appreciation rate</label>
+            <p>Estimated rate at which your home increases in value per year</p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="homeGrowth"
+              name="homeGrowth"
+              value="4"
+              min="0"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
         </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="homeGrowth"
-            name="homeGrowth"
-            value="4"
-            min="0"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="propertyTax">Property tax</label>
+            <p>The amount of property tax paid per month</p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="propertyTax"
+              name="propertyTax"
+              value="600"
+              min="0"
+              class="right-rounded"
+            />
+          </div>
         </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="propertyTax">Property tax</label>
-          <p>The amount of property tax paid per month</p>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="hoa">HOA</label>
+            <p>
+              The amount of HOA or common charges paid per month. These are
+              typically higher in condos
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="hoa"
+              name="hoa"
+              value="600"
+              min="0"
+              class="right-rounded"
+            />
+          </div>
         </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="propertyTax"
-            name="propertyTax"
-            value="600"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="hoa">HOA</label>
-          <p>
-            The amount of HOA or common charges paid per month. These are
-            typically higher in condos
-          </p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="hoa"
-            name="hoa"
-            value="600"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="homeownerInsurance">Homeowners insurance</label>
-          <p>Homeowners insurance cost paid per month</p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="homeownerInsurance"
-            name="homeownerInsurance"
-            value="300"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="hoaGrowth">Maintenance costs</label>
-          <p>
-            The expected amount to spend home maintenance per month. Usually
-            higher for a house than a condo or coop since the latter typically
-            bundles maintenance in HOA fees
-          </p>
-        </div>
-        <div class="input-container">
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="homeownerInsurance">Homeowners insurance</label>
+            <p>Homeowners insurance cost paid per month</p>
+          </div>
           <div class="input-data-container">
             <span
               class="input-group-text left-rounded"
@@ -302,101 +303,138 @@
             />
           </div>
         </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="hoaGrowth">Maintenance costs</label>
+            <p>
+              The expected amount to spend home maintenance per month. Usually
+              higher for a house than a condo or coop since the latter typically
+              bundles maintenance in HOA fees
+            </p>
+          </div>
+          <div class="input-container">
+            <div class="input-data-container">
+              <span
+                class="input-group-text left-rounded"
+                style="border-right: none"
+                >$</span
+              >
+              <input
+                size="5"
+                id="homeownerInsurance"
+                name="homeownerInsurance"
+                value="300"
+                min="0"
+                class="right-rounded"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="growth">Non-mortgage increase rate</label>
+            <p>
+              The expected YoY increase of your non-mortgage fees like
+              insurance, property tax, and HOA. This will probably track with
+              inflation, unless you live in one of those jacked insurance areas
+              like Florida
+            </p>
+          </div>
+          <div class="input-data-container">
+            <input
+              size="3"
+              id="growth"
+              name="growth"
+              value="3"
+              min="0"
+              class="left-rounded"
+            />
+            <span
+              class="input-group-text right-rounded"
+              style="border-left: none"
+              >%</span
+            >
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="standardDeduction">Standard deduction</label>
+            <p>
+              This is used to calculate tax savings since you can itemize
+              payments on the interest portion of your mortgage. Note this is
+              the federal standard deduction. State and local taxes are too
+              annoying to calculate
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="standardDeduction"
+              name="standardDeduction"
+              value="14,600"
+              min="0"
+              class="right-rounded number-input"
+            />
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="taxBracket">Marginal tax bracket</label>
+            <p>
+              Predict your highest level tax bracket to calculate estimated tax
+              savings
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >%</span
+            >
+            <input
+              size="5"
+              id="taxBracket"
+              name="taxBracket"
+              value="24"
+              min="0"
+              class="right-rounded"
+            />
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="rentalIncome">Rental income</label>
+            <p>
+              Renting out an extra room? You sly dog. Enter your rental income
+              per month
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="rentalIncome"
+              name="rentalIncome"
+              value="0"
+              min="0"
+              class="right-rounded"
+            />
+          </div>
+        </div>
       </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="growth">Non-mortgage increase rate</label>
-          <p>
-            The expected YoY increase of your non-mortgage fees like insurance,
-            property tax, and HOA. This will probably track with inflation,
-            unless you live in one of those jacked insurance areas like Florida
-          </p>
-        </div>
-        <div class="input-data-container">
-          <input
-            size="3"
-            id="growth"
-            name="growth"
-            value="3"
-            min="0"
-            class="left-rounded"
-          />
-          <span class="input-group-text right-rounded" style="border-left: none"
-            >%</span
-          >
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="standardDeduction">Standard deduction</label>
-          <p>
-            This is used to calculate tax savings since you can itemize payments
-            on the interest portion of your mortgage. Note this is the federal
-            standard deduction. State and local taxes are too annoying to
-            calculate
-          </p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="standardDeduction"
-            name="standardDeduction"
-            value="14,600"
-            min="0"
-            class="right-rounded number-input"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="taxBracket">Marginal tax bracket</label>
-          <p>
-            Predict your highest level tax bracket to calculate estimated tax
-            savings
-          </p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >%</span
-          >
-          <input
-            size="5"
-            id="taxBracket"
-            name="taxBracket"
-            value="24"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-      <div class="input-item">
-        <div class="input-text-container">
-          <label for="rentalIncome">Rental income</label>
-          <p>
-            Renting out an extra room? You sly dog. Enter your rental income per
-            month
-          </p>
-        </div>
-        <div class="input-data-container">
-          <span class="input-group-text left-rounded" style="border-right: none"
-            >$</span
-          >
-          <input
-            size="5"
-            id="rentalIncome"
-            name="rentalIncome"
-            value="0"
-            min="0"
-            class="right-rounded"
-          />
-        </div>
-      </div>
-    </div>
+    </details>
+
     <hr />
-    <div class="input-grid">
+    <div class="controls-container">
       <div class="input-item">
         <div class="input-text-container">
           <label for="years">Years to calculate</label>
@@ -423,6 +461,7 @@
     </div>
     <hr />
     <div id="table-container"></div>
+
     <script src="script.js"></script>
   </body>
 </html>
