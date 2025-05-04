@@ -333,8 +333,10 @@ table thead {
 
 #table-container {
   max-width: 100%;
+  width: fit-content;
   max-height: 80vh;
   overflow: scroll;
+  margin: auto;
 }
 
 @media (max-width: 720px) {
