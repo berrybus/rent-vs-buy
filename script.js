@@ -62,6 +62,7 @@ function calculateMortgage() {
     mortgageYears == undefined ||
     interestRate == 0
   ) {
+    mortgageInput.value = "Error"
     return;
   }
   interestRate /= 100;
