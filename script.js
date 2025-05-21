@@ -53,7 +53,6 @@ function calculateDownPayment() {
   if (downPayment != undefined && homeCost != undefined) {
     downPaymentAmount = (downPayment / 100) * homeCost;
     downPaymentAmount = Math.round(downPaymentAmount * 100) / 100;
-    console.log("down payment amount" + downPaymentAmount);
     downPaymentAmountElement.textContent = `($${downPaymentAmount.toLocaleString(
       undefined,
       {}
@@ -191,10 +190,7 @@ function calculate() {
       portionOwned: 1 - principle / homeCost,
       principle: yearlyPrinciple,
     });
-    console.log(principle);
   }
-
-  console.log(piTable);
 
   // Yearly simulation!
   var rentInvestments = Math.max(0, downPaymentAmount - nepoMoney);
