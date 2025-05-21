@@ -19,12 +19,24 @@
     </h1>
     <hr />
 
+    <details>
+      <summary class="summary-neutral">Methodology and Assumptions</summary>
+      <ul>
+        <li>Don't look too closely at the total NW, look more at the difference</li>
+        <li>We assume that you have enough money to afford either the renting or buying option, so we look at the opportunity cost for each option</li>
+        <li>If the monthly payment of rent is higher than buy, the difference goes in the investment bucket for buying and vice versa</li>
+        <li>American tax savings</li>
+        <li>Can always deduct SALT cap</li>
+        <li>I made this calculator for personal use, but I hope you can get some use out of it too. If you see any issues, email me at <a href="mailto:nancy@redbeancat.com">nancy@redbeancat.com</a> or create an issue in the <a href="https://github.com/berrybus/rent-vs-buy">repo</a></li>
+      </ul>
+    </details>
+
     <details open>
       <summary class="summary-blue">Renting</summary>
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
-            <label for="rent">Rent</label>
+            <label for="rentInput">Rent</label>
             <p>
               Monthly. Include renter's insurance if it's significant. Don't
               include utilities because we'll assume it's about the same between
@@ -39,7 +51,7 @@
             >
             <input
               size="8"
-              id="rent"
+              id="rentInput"
               name="rent"
               min="1"
               value="1,500"
@@ -49,14 +61,13 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="rentGrowth">Rent increase rate</label>
+            <label for="rentGrowthInput">Rent increase rate</label>
             <p>Estimated increase in rent per year</p>
           </div>
           <div class="input-data-container">
             <input
               size="3"
-              id="rentGrowth"
-              name="rentGrowth"
+              id="rentGrowthInput"
               min="0"
               value="3.5"
               class="left-rounded"
@@ -70,7 +81,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="stockGrowth">Investment return rate</label>
+            <label for="stockGrowthInput">Investment return rate</label>
             <p>
               Estimated investment returns of any money not spent on housing.
               For example, putting the down payment money in the S&ampP 500.
@@ -80,8 +91,7 @@
           <div class="input-data-container">
             <input
               size="3"
-              id="stockGrowth"
-              name="stockGrowth"
+              id="stockGrowthInput"
               min="1"
               value="8"
               class="left-rounded"
@@ -103,7 +113,7 @@
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
-            <label for="homeCost">Home cost</label>
+            <label for="homeCostInput">Home cost</label>
             <p>Total cost for the home</p>
           </div>
           <div class="input-data-container">
@@ -114,7 +124,7 @@
             >
             <input
               size="8"
-              id="homeCost"
+              id="homeCostInput"
               name="homeCost"
               min="1"
               value="450,000"
@@ -124,7 +134,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="downPayment">Down payment</label>
+            <label for="downPaymentInput">Down payment</label>
             <p>
               The percent downpayment, typically 20% is the minimum. The more
               you pay upfront, the less interest you pay on the mortgage
@@ -134,7 +144,7 @@
             <div class="input-data-container">
               <input
                 size="3"
-                id="downPayment"
+                id="downPaymentInput"
                 name="downpayment"
                 min="0"
                 max="100"
@@ -147,18 +157,18 @@
                 >%</span
               >
             </div>
-            <p id="downPaymentDollars"></p>
+            <p id="downPaymentDollarsDisplay"></p>
           </div>
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="interestRate">Interest rate</label>
+            <label for="interestRateInput">Interest rate</label>
             <p>Interest rate of the loan</p>
           </div>
           <div class="input-data-container">
             <input
               size="3"
-              id="interestRate"
+              id="interestRateInput"
               name="interestRate"
               value="7.25"
               min="0"
@@ -173,7 +183,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="mortgageYears">Mortgage length</label>
+            <label for="mortgageYearsInput">Mortgage length</label>
             <p>
               The number of years of the mortgage loan. Higher means a lower
               monthly payment at the expense of paying more interest
@@ -182,7 +192,7 @@
           <div class="input-data-container">
             <input
               size="3"
-              id="mortgageYears"
+              id="mortgageYearsInput"
               name="mortgageYears"
               value="30"
               min="1"
@@ -198,7 +208,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="mortgage">Mortgage payment</label>
+            <label for="mortgageInput">Mortgage payment</label>
             <p>Amount of monthly mortgage payment</p>
           </div>
           <div class="input-data-container">
@@ -209,7 +219,7 @@
             >
             <input
               size="5"
-              id="mortgage"
+              id="mortgageInput"
               name="mortgage"
               value=""
               min="0"
@@ -226,7 +236,7 @@
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
-            <label for="propertyTax">Property tax</label>
+            <label for="propertyTaxInput">Property tax</label>
             <p>The amount of property tax paid per month</p>
           </div>
           <div class="input-data-container">
@@ -237,8 +247,7 @@
             >
             <input
               size="5"
-              id="propertyTax"
-              name="propertyTax"
+              id="propertyTaxInput"
               value="500"
               min="0"
               class="right-rounded"
@@ -247,7 +256,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="hoa">HOA</label>
+            <label for="hoaInput">HOA</label>
             <p>
               The amount of HOA or common charges paid per month. These are
               typically higher in condos
@@ -261,8 +270,7 @@
             >
             <input
               size="5"
-              id="hoa"
-              name="hoa"
+              id="hoaInput"
               value="300"
               min="0"
               class="right-rounded"
@@ -271,7 +279,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="homeownerInsurance">Homeowners insurance</label>
+            <label for="homeInsuranceInput">Homeowners insurance</label>
             <p>Homeowners insurance cost paid per month</p>
           </div>
           <div class="input-data-container">
@@ -282,8 +290,7 @@
             >
             <input
               size="5"
-              id="homeownerInsurance"
-              name="homeownerInsurance"
+              id="homeInsuranceInput"
               value="100"
               min="0"
               class="right-rounded"
@@ -292,7 +299,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="maintenance">Maintenance costs</label>
+            <label for="maintenanceInput">Maintenance costs</label>
             <p>
               The expected amount to spend home maintenance per month. Usually
               higher for a house than a condo or coop since the latter typically
@@ -308,8 +315,7 @@
               >
               <input
                 size="5"
-                id="maintenance"
-                name="maintenance"
+                id="maintenanceInput"
                 value="300"
                 min="0"
                 class="right-rounded"
@@ -324,14 +330,13 @@
       <div class="input-grid">
         <div class="input-item">
           <div class="input-text-container">
-            <label for="homeGrowth">Home appreciation rate</label>
+            <label for="homeGrowthInput">Home appreciation rate</label>
             <p>Estimated rate at which your home increases in value per year</p>
           </div>
           <div class="input-data-container">
             <input
               size="3"
-              id="homeGrowth"
-              name="homeGrowth"
+              id="homeGrowthInput"
               value="4"
               min="0"
               class="left-rounded"
@@ -345,7 +350,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="extraGrowth">Non-mortgage increase rate</label>
+            <label for="extraGrowthInput">Non-mortgage increase rate</label>
             <p>
               The expected YoY increase of your non-mortgage fees like
               insurance, property tax, and HOA. This will probably track with
@@ -356,8 +361,7 @@
           <div class="input-data-container">
             <input
               size="3"
-              id="extraGrowth"
-              name="extraGrowth"
+              id="extraGrowthInput"
               value="3"
               min="0"
               class="left-rounded"
@@ -371,7 +375,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="standardDeduction">Standard deduction</label>
+            <label for="standardDeductionInput">Standard deduction</label>
             <p>
               This is used to calculate tax savings since you can itemize
               payments on the interest portion of your mortgage. Note this is
@@ -387,8 +391,7 @@
             >
             <input
               size="5"
-              id="standardDeduction"
-              name="standardDeduction"
+              id="standardDeductionInput"
               value="14,600"
               min="0"
               class="right-rounded number-input"
@@ -397,7 +400,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="taxBracket">Marginal tax bracket</label>
+            <label for="taxBracketInput">Marginal tax bracket</label>
             <p>
               Predict your highest level tax bracket to calculate estimated tax
               savings
@@ -411,8 +414,7 @@
             >
             <input
               size="5"
-              id="taxBracket"
-              name="taxBracket"
+              id="taxBracketInput"
               value="24"
               min="0"
               class="right-rounded"
@@ -421,7 +423,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="rentalIncome">Rental income</label>
+            <label for="rentalIncomeInput">Rental income</label>
             <p>
               Renting out an extra room? You sly dog. Enter your rental income
               per month
@@ -435,8 +437,7 @@
             >
             <input
               size="5"
-              id="rentalIncome"
-              name="rentalIncome"
+              id="rentalIncomeInput"
               value="0"
               min="0"
               class="right-rounded number-input"
@@ -445,7 +446,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="nepoMoney">Parental contributions</label>
+            <label for="nepoMoneyInput">Parental contributions</label>
             <p>
               Any money gifted for a home purchase that you wouldn't otherwise
               have gotten. This gets subtracted from the downpayment that gets
@@ -461,8 +462,7 @@
             >
             <input
               size="5"
-              id="nepoMoney"
-              name="nepoMoney"
+              id="nepoMoneyInput"
               value="0"
               min="0"
               class="right-rounded number-input"
@@ -476,13 +476,13 @@
     <div class="controls-container">
       <div class="input-item">
         <div class="input-text-container">
-          <label for="years">Years to calculate</label>
+          <label for="yearsInput">Years to calculate</label>
           <p>How many years to consider in the calculation</p>
         </div>
         <div class="input-data-container">
           <input
             size="3"
-            id="years"
+            id="yearsInput"
             name="years"
             value="30"
             min="1"
@@ -495,17 +495,21 @@
         </div>
       </div>
       <div class="button-container">
-        <button onclick="createTable()" type="button" style="font-weight: bold" >Calculate</button>
+        <button onclick="createTable()" type="button" style="font-weight: bold">
+          Calculate
+        </button>
       </div>
     </div>
     <hr />
     <h2 id="results">No results yet</h2>
+    <div id="myChart"></div>
 
-    <details id="chart-container" style="display: none" open>
+    <details id="chartContainer" style="display: none" open>
       <summary class="summary-neutral">Full chart</summary>
-      <div id="table-container"></div>
+      <div id="tableContainer"></div>
     </details>
 
     <script src="script.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
   </body>
 </html>
