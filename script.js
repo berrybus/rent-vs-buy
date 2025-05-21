@@ -77,6 +77,28 @@ function calculateMortgage() {
   mortgage = principal * (numerator / denominator)
   mortgage = Math.round(mortgage * 100) / 100
   mortgageInput.value = mortgage
+
+  calculateTotalMonthlyPayment();
+}
+
+function calculateTotalMonthlyPayment() {
+  let propertyTax = getValidNumber(propertyTaxInput)
+  let hoa = getValidNumber(hoaInput)
+  let homeownerInsurance = getValidNumber(homeInsuranceInput)
+  let maintenance = getValidNumber(maintenanceInput)
+  if (
+    mortgage == undefined ||
+    propertyTax == undefined ||
+    hoa == undefined ||
+    homeownerInsurance == undefined ||
+    maintenance == undefined
+  ) {
+    return
+  }
+
+  let total = mortgage + propertyTax + hoa + homeownerInsurance + maintenance;
+  total = Math.round(total * 100) / 100
+  totalHomePayment.value = total
 }
 
 calculateMortgage()
@@ -267,13 +289,25 @@ function createTable() {
   const headers = [
     ["Year", "year", ""],
     ["Total Payment", "rent", "Yearly rent payment"],
-    ["Investments (Total NW)", "rent", "The total NW of renting is just the investments"],
+    [
+      "Investments (Total NW)",
+      "rent",
+      "The total NW of renting is just the investments",
+    ],
     ["Total Payment", "buy", "Yearly payment for all things home-related"],
     ["Mortgage", "buy", "Yearly payment for mortgage"],
     ["Principal", "buy", "Yearly payment on the principal of the mortgage"],
     ["Interest", "buy", "Yearly payment on the interest of the mortgage"],
-    ["Recurring Costs", "buy", "All the other costs like the maintenence, insurance, hoa, property tax"],
-    ["Tax Saving", "buy", "Amount you save in taxes compared to renting, for Americans only"],
+    [
+      "Recurring Costs",
+      "buy",
+      "All the other costs like the maintenence, insurance, hoa, property tax",
+    ],
+    [
+      "Tax Saving",
+      "buy",
+      "Amount you save in taxes compared to renting, for Americans only",
+    ],
     ["Rental Income", "buy", "Yearly rental income"],
     ["Investments", "buy", "The total value in investments"],
     ["Home Equity", "buy", "The percentage of the home x value of the home"],
