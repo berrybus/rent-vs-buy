@@ -17,7 +17,9 @@ function getValidNumber(inputElement) {
   const max = inputElement.max !== "" ? Number(inputElement.max) : Infinity;
 
   // Return the number ONLY if valid, otherwise undefined
-  return !isNaN(num) && num >= min && num <= max ? num : undefined;
+  return !isNaN(num) && num >= min && num <= max
+    ? Math.round(num * 100) / 100
+    : undefined;
 }
 
 const downPaymentInput = document.getElementById("downPayment");
@@ -26,18 +28,35 @@ const interestRateInput = document.getElementById("interestRate");
 const mortgageYearsInput = document.getElementById("mortgageYears");
 const downPaymentAmountElement = document.getElementById("downPaymentDollars");
 const mortgageInput = document.getElementById("mortgage");
+const rentInput = document.getElementById("rent");
+const yearsInput = document.getElementById("years");
+const rentGrowthInput = document.getElementById("rentGrowth");
+const stockGrowthInput = document.getElementById("stockGrowth");
+const homeGrowthInput = document.getElementById("homeGrowth");
+const propertyTaxInput = document.getElementById("propertyTax");
+const hoaInput = document.getElementById("hoa");
+const homeInsuranceInput = document.getElementById("homeownerInsurance");
+const maintenanceInput = document.getElementById("maintenance");
+const standardDeductionInput = document.getElementById("standardDeduction");
+const taxBracketInput = document.getElementById("taxBracket");
+const extraGrowthInput = document.getElementById("extraGrowth");
+const rentalIncomeInput = document.getElementById("rentalIncome");
+const nepoMoneyInput = document.getElementById("nepoMoney");
+
 var mortgage;
+var downPaymentAmount;
 
 function calculateDownPayment() {
   const downPayment = getValidNumber(downPaymentInput);
   const homeCost = getValidNumber(homeCostInput);
 
   if (downPayment != undefined && homeCost != undefined) {
-    const downPaymentAmount = (downPayment / 100) * homeCost;
-    console.log(downPaymentAmount);
+    downPaymentAmount = (downPayment / 100) * homeCost;
+    downPaymentAmount = Math.round(downPaymentAmount * 100) / 100;
+    console.log("down payment amount" + downPaymentAmount);
     downPaymentAmountElement.textContent = `($${downPaymentAmount.toLocaleString(
       undefined,
-      {},
+      {}
     )})`;
   } else {
     downPaymentAmountElement.textContent = "";
@@ -50,19 +69,18 @@ homeCostInput.addEventListener("blur", calculateDownPayment);
 calculateDownPayment();
 
 function calculateMortgage() {
-  var downPayment = getValidNumber(downPaymentInput);
-  var homeCost = getValidNumber(homeCostInput);
   var interestRate = getValidNumber(interestRateInput);
-  var mortgageYears = getValidNumber(mortgageYearsInput);
+  const mortgageYears = getValidNumber(mortgageYearsInput);
+  const homeCost = getValidNumber(homeCostInput);
 
   if (
-    downPayment == undefined ||
-    homeCost == undefined ||
+    downPaymentAmount == undefined ||
     interestRate == undefined ||
     mortgageYears == undefined ||
+    homeCost == undefined ||
     interestRate == 0
   ) {
-    mortgageInput.value = "Error"
+    mortgageInput.value = "Error";
     return;
   }
   interestRate /= 100;
@@ -71,17 +89,13 @@ function calculateMortgage() {
     mortgageInput.value = mortgage;
     return;
   }
-  console.log("downPayment: " + downPayment);
-  console.log("homeCost: " + homeCost);
-  console.log("interestRate: " + interestRate);
-  console.log("mortgageYears: " + mortgageYears);
-  const downPaymentDollars = ((downPayment / 100) * homeCost).toFixed(2);
-  const principle = homeCost - downPaymentDollars;
+  const principle = homeCost - downPaymentAmount;
   const n = mortgageYears * 12;
   const monthly_interest = interestRate / 12;
   const numerator = monthly_interest * Math.pow(1 + monthly_interest, n);
   const denominator = Math.pow(1 + monthly_interest, n) - 1;
-  mortgage = (principle * (numerator / denominator)).toFixed(2);
+  mortgage = principle * (numerator / denominator);
+  mortgage = Math.round(mortgage * 100) / 100;
   mortgageInput.value = mortgage;
 }
 
@@ -101,92 +115,168 @@ document.querySelectorAll(".number-input").forEach((input) => {
   });
 });
 
-function createTable() {
-  const rentData = [
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-    { year: 1, rentPaid: 12000, cumulative: 12000 },
-    { year: 2, rentPaid: 12360, cumulative: 24360 },
-    { year: 3, rentPaid: 12731, cumulative: 37091 },
-    { year: 4, rentPaid: 13113, cumulative: 50204 },
-    { year: 5, rentPaid: 13506, cumulative: 63710 },
-  ];
+function calculate() {
+  const rentAmount = getValidNumber(rentInput);
+  const interestRate = getValidNumber(interestRateInput);
+  const mortgageYears = getValidNumber(mortgageYearsInput);
+  const homeCost = getValidNumber(homeCostInput);
+  const years = getValidNumber(yearsInput);
+  var rentGrowth = getValidNumber(rentGrowthInput);
+  var stockGrowth = getValidNumber(stockGrowthInput);
+  var propertyTax = getValidNumber(propertyTaxInput);
+  var hoa = getValidNumber(hoaInput);
+  var homeownerInsurance = getValidNumber(homeInsuranceInput);
+  var maintenance = getValidNumber(maintenanceInput);
+  const standardDeduction = getValidNumber(standardDeductionInput);
+  var taxBracket = getValidNumber(taxBracketInput);
+  var extraGrowth = getValidNumber(extraGrowthInput);
+  var homeGrowth = getValidNumber(homeGrowthInput);
+  var rentalIncome = getValidNumber(rentalIncomeInput);
+  const nepoMoney = getValidNumber(nepoMoneyInput);
 
-  const buyData = [
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-    { year: 1, mortgage: 13000, equity: 10000 },
-    { year: 2, mortgage: 13000, equity: 20500 },
-    { year: 3, mortgage: 13000, equity: 31500 },
-    { year: 4, mortgage: 13000, equity: 43000 },
-    { year: 5, mortgage: 13000, equity: 55000 },
-  ];
+  if (
+    rentAmount == undefined ||
+    downPaymentAmount == undefined ||
+    interestRate == undefined ||
+    mortgageYears == undefined ||
+    homeCost == undefined ||
+    mortgage == undefined ||
+    years == undefined ||
+    rentGrowth == undefined ||
+    stockGrowth == undefined ||
+    propertyTax == undefined ||
+    hoa == undefined ||
+    homeownerInsurance == undefined ||
+    maintenance == undefined ||
+    standardDeduction == undefined ||
+    taxBracket == undefined ||
+    extraGrowth == undefined ||
+    homeGrowth == undefined ||
+    rentalIncome == undefined ||
+    nepoMoney == undefined
+  ) {
+    return undefined;
+  }
+  // Calculate yearly principle and interest table
+  var piTable = [];
+  var principle = homeCost - downPaymentAmount;
+  const monthlyInterest = interestRate / 100 / 12;
+  rentGrowth = 1 + rentGrowth / 100;
+  stockGrowth = 1 + stockGrowth / 100;
+  extraGrowth = 1 + extraGrowth / 100;
+  homeGrowth = 1 + homeGrowth / 100;
+  taxBracket /= 100;
+
+  for (let i = 0; i < mortgageYears; i++) {
+    var yearlyInterest = 0;
+    var yearlyDeductibleInterest = 0;
+    var yearlyMortgage = 0;
+    var yearlyPrinciple = 0;
+    for (let month = 0; month < 12; month++) {
+      const interest = principle * monthlyInterest;
+      // Can only deduct interest on first $750,000 of principle
+      const deductibleInterest = Math.min(principle, 750000) * monthlyInterest;
+      const principlePayment = Math.min(mortgage - interest, principle);
+      const mortgagePayment = principlePayment + interest;
+      principle -= principlePayment;
+      yearlyInterest += interest;
+      yearlyDeductibleInterest += deductibleInterest;
+      yearlyMortgage += mortgagePayment;
+      yearlyPrinciple += principlePayment;
+    }
+    piTable.push({
+      interest: yearlyInterest,
+      deductibleInterest: yearlyDeductibleInterest,
+      mortgage: yearlyMortgage,
+      portionOwned: 1 - principle / homeCost,
+      principle: yearlyPrinciple,
+    });
+    console.log(principle);
+  }
+
+  console.log(piTable);
+
+  // Yearly simulation!
+  var rentInvestments = Math.max(0, downPaymentAmount - nepoMoney);
+  var buyInvestments = 0;
+  var homeValue = homeCost;
+  var rentData = [];
+  var buyData = [];
+  var rentPayment = rentAmount * 12;
+  for (let i = 0; i < years; i++) {
+    const mortgage = i < piTable.length ? piTable[i].mortgage : 0;
+    const interest = i < piTable.length ? piTable[i].interest : 0;
+    const principlePayment = i < piTable.length ? piTable[i].principle : 0;
+    const extraCost =
+      (hoa + propertyTax + homeownerInsurance + maintenance) * 12;
+    const homePayment = mortgage + extraCost;
+
+    // Assume that you always have the money to pay either the mortgage or rent and
+    // invested the amount you saved instead of spending it
+    if (homePayment > rentPayment) {
+      const diff = homePayment - rentPayment;
+      rentInvestments += diff;
+    } else {
+      const diff = rentPayment - homePayment;
+      buyInvestments += diff;
+    }
+
+    buyInvestments += rentalIncome * 12;
+
+    const homeOwnedPercentage =
+      i < piTable.length ? piTable[i].portionOwned : 1;
+    const homeEquity = homeOwnedPercentage * homeValue;
+    const interestSaved =
+      i < piTable.length ? piTable[i].deductibleInterest : 0;
+    // Assume SALT cap
+    const totalDeduction = interestSaved + 10000;
+    const deductionSaved = Math.max(0, totalDeduction - standardDeduction);
+    const taxesSaved = deductionSaved * taxBracket;
+    buyInvestments += taxesSaved;
+
+    // Round investments to nearest cent
+    rentInvestments = Math.round(rentInvestments * 100) / 100;
+    buyInvestments = Math.round(buyInvestments * 100) / 100;
+    rentData.push({
+      monthlyPayment: rentPayment,
+      investments: rentInvestments,
+      total: rentInvestments,
+    });
+    buyData.push({
+      monthlyPayment: homePayment,
+      mortgage: mortgage,
+      principle: principlePayment,
+      interest: interest,
+      extraCost: extraCost,
+      taxesSaved: taxesSaved,
+      investments: buyInvestments,
+      homeEquity: homeEquity,
+      rentalIncome: rentalIncome * 12,
+      total: buyInvestments + homeEquity,
+    });
+    // Another year has passed, increase the costs!
+    rentPayment *= rentGrowth;
+    hoa *= extraGrowth;
+    propertyTax *= extraGrowth;
+    homeownerInsurance *= extraGrowth;
+    maintenance *= extraGrowth;
+    homeValue *= homeGrowth;
+    buyInvestments *= stockGrowth;
+    rentInvestments *= stockGrowth;
+    rentalIncome *= homeGrowth;
+  }
+  return { rentData, buyData };
+}
+
+function createTable() {
+  const result = calculate();
+  const rentalIncome = getValidNumber(rentalIncomeInput);
+  if (result === undefined) {
+    console.warn("Missing input(s), skipping table creation.");
+    return;
+  }
+
+  const { rentData, buyData } = result;
 
   const container = document.getElementById("table-container");
   container.innerHTML = "";
@@ -202,16 +292,30 @@ function createTable() {
   const headerRow = thead.insertRow();
   const headers = [
     ["Year", "year"],
-    ["Rent Paid ($)", "rent"],
-    ["Cumulative Rent ($)", "rent"],
-    ["Mortgage ($)", "buy"],
-    ["Equity Gained ($)", "buy"],
+    ["Total Payment", "rent"],
+    ["Investments (Total NW)", "rent"],
+    ["Total Payment", "buy"],
+    ["Mortgage", "buy"],
+    ["Principle", "buy"],
+    ["Interest", "buy"],
+    ["Recurring Costs", "buy"],
+    ["Tax Saving", "buy"],
+    ["Rental Income", "buy"],
+    ["Investments", "buy"],
+    ["Home Equity", "buy"],
+    ["Total NW", "buy"],
   ];
   headers.forEach(([text, style]) => {
     const th = document.createElement("th");
     th.textContent = text;
     if (style != "") {
       th.classList.add(style);
+    }
+    if (
+      text == "Rental Income" &&
+      (rentalIncome == undefined || rentalIncome == 0)
+    ) {
+      return;
     }
     headerRow.appendChild(th);
   });
@@ -222,20 +326,85 @@ function createTable() {
     const rent = rentData[i];
     const buy = buyData[i];
 
-    row.insertCell().textContent = rent.year;
-    row.insertCell().textContent = rent.rentPaid.toLocaleString();
-    row.insertCell().textContent = rent.cumulative.toLocaleString();
+    row.insertCell().textContent = i + 1;
+    row.insertCell().textContent = rent.monthlyPayment.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = rent.total.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
 
-    row.insertCell().textContent = buy.mortgage.toLocaleString();
-    row.insertCell().textContent = buy.equity.toLocaleString();
+    row.insertCell().textContent = buy.monthlyPayment.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.mortgage.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.principle.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.interest.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.extraCost.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.taxesSaved.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    if (rentalIncome > 0) {
+      row.insertCell().textContent = buy.rentalIncome.toLocaleString("en-US", {
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2,
+      });
+    }
+    row.insertCell().textContent = buy.investments.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.homeEquity.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
+    row.insertCell().textContent = buy.total.toLocaleString("en-US", {
+      minimumFractionDigits: 2,
+      maximumFractionDigits: 2,
+    });
   }
+
+  let winnerClass;
+  let winnerString;
+  let winnerDiff;
+  const rentFinal = rentData[rentData.length - 1].total;
+  const buyFinal = buyData[buyData.length - 1].total;
+
+  if (rentFinal < buyFinal) {
+    winnerClass = "purple-text";
+    winnerString = "Buying";
+    winnerDiff = buyFinal - rentFinal;
+  } else if (rentFinal > buyFinal) {
+    winnerClass = "blue-text";
+    winnerString = "Renting";
+    winnerDiff = rentFinal - buyFinal;
+  }
+
+  const savingsString = winnerDiff.toLocaleString("en-US", {
+    minimumFractionDigits: 2,
+    maximumFractionDigits: 2,
+  });
 
   container.appendChild(table);
   const results = document.getElementById("results");
-  results.innerHTML = "<span class=\"blue-text\">Renting</span> saves you $56,000";
+  results.innerHTML = `<span class=${winnerClass}>${winnerString}</span> saves you $${savingsString}`;
   const chartContainer = document.getElementById("chart-container");
-  chartContainer.style.display = "block"
+  chartContainer.style.display = "block";
   chartContainer.setAttribute("open", "");
 }
-
-{/* <span class="blue-text">Renting</span> saves you $56,000 */}

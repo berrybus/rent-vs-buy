@@ -239,7 +239,7 @@
               size="5"
               id="propertyTax"
               name="propertyTax"
-              value="600"
+              value="500"
               min="0"
               class="right-rounded"
             />
@@ -263,7 +263,7 @@
               size="5"
               id="hoa"
               name="hoa"
-              value="600"
+              value="300"
               min="0"
               class="right-rounded"
             />
@@ -284,7 +284,7 @@
               size="5"
               id="homeownerInsurance"
               name="homeownerInsurance"
-              value="300"
+              value="00"
               min="0"
               class="right-rounded"
             />
@@ -292,7 +292,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="hoaGrowth">Maintenance costs</label>
+            <label for="maintenance">Maintenance costs</label>
             <p>
               The expected amount to spend home maintenance per month. Usually
               higher for a house than a condo or coop since the latter typically
@@ -308,8 +308,8 @@
               >
               <input
                 size="5"
-                id="homeownerInsurance"
-                name="homeownerInsurance"
+                id="maintenance"
+                name="maintenance"
                 value="300"
                 min="0"
                 class="right-rounded"
@@ -345,7 +345,7 @@
         </div>
         <div class="input-item">
           <div class="input-text-container">
-            <label for="growth">Non-mortgage increase rate</label>
+            <label for="extraGrowth">Non-mortgage increase rate</label>
             <p>
               The expected YoY increase of your non-mortgage fees like
               insurance, property tax, and HOA. This will probably track with
@@ -356,8 +356,8 @@
           <div class="input-data-container">
             <input
               size="3"
-              id="growth"
-              name="growth"
+              id="extraGrowth"
+              name="extraGrowth"
               value="3"
               min="0"
               class="left-rounded"
@@ -439,7 +439,33 @@
               name="rentalIncome"
               value="0"
               min="0"
-              class="right-rounded"
+              class="right-rounded number-input"
+            />
+          </div>
+        </div>
+        <div class="input-item">
+          <div class="input-text-container">
+            <label for="nepoMoney">Parental contributions</label>
+            <p>
+              Any money gifted for a home purchase that you wouldn't otherwise
+              have gotten. This gets subtracted from the downpayment that gets
+              put in the renting investment account since you wouldn't have
+              gotten it if you kept renting.
+            </p>
+          </div>
+          <div class="input-data-container">
+            <span
+              class="input-group-text left-rounded"
+              style="border-right: none"
+              >$</span
+            >
+            <input
+              size="5"
+              id="nepoMoney"
+              name="nepoMoney"
+              value="0"
+              min="0"
+              class="right-rounded number-input"
             />
           </div>
         </div>
@@ -473,14 +499,11 @@
       </div>
     </div>
     <hr />
-    <h2 id="results">
-      No results yet
-    </h2>
+    <h2 id="results">No results yet</h2>
 
-    <details id="chart-container" style="display:none" open>
+    <details id="chart-container" style="display: none" open>
       <summary class="summary-neutral">Full chart</summary>
       <div id="table-container"></div>
-
     </details>
 
     <script src="script.js"></script>
